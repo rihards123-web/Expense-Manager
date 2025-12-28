@@ -9,7 +9,7 @@
 <body>
     @foreach($user_transactions as $transaction)
     <p>{{ $transaction->type }}</p>
-    <p>{{ $transaction->amount_cents }}</p>
+    <p>{{ number_format($transaction->amount_cents/100, 2, '.') }}</p>
     <p>{{ $transaction->currency }}</p>
     <p>{{ $transaction->category }}</p>
     <p>{{ $transaction->occurred_on }}</p>

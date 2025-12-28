@@ -15,6 +15,10 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/izdevumi', [TransactionController::class, 'index']);
+    Route::get('/izdevumi/jauns', function () {
+            return view('make_transaction');
+});
+    Route::post('/izdevumi/jauns', [TransactionController::class, 'store'])->name('make.transaction');
 });
 
 Route::middleware('auth')->group(function () {

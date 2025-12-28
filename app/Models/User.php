@@ -19,7 +19,9 @@ class User extends Authenticatable
      * @var list<string>
      */
 
-       // Function to be able to get the transactions for user. 
+       // find this user’s transactions, look in the transactions table for rows where transactions.user_id equals this user’s id
+       // So if your user’s id is 7, Laravel will effectively run a query like:
+       // SELECT * FROM transactions WHERE user_id = 7
     public function transactions(): HasMany {
         return $this->hasMany(Transaction::class);
     }
